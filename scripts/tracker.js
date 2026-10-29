@@ -58,6 +58,21 @@ Hooks.once('init',()=>{
     onChange:value=>{if(key==='visible')syncVisibility(value);else refresh();}
   });
 });
+function ensureGMLauncher() {
+  if (!game.user?.isGM) return;
+  let btn = document.getElementById('hollowick-gm-toggle');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'hollowick-gm-toggle';
+    btn.type = 'button';
+    btn.textContent = '🎃';
+    btn.setAttribute('aria-label', 'Show or hide the Hollowick tracker for all players');
+    btn.addEventListener('click', () => game.hollowickTracker?.toggle());
+    document.body.append(btn);
+  }
+  updateToggle();
+}
+Hooks.on('renderSidebar', () => { if (game.hollowickTracker) ensureGMLauncher(); });
 Hooks.once('ready',()=>{
   tracker=new HollowickWindow();
   game.hollowickTracker={
@@ -69,7 +84,6 @@ Hooks.once('ready',()=>{
   game.socket.on(CHANNEL,message=>{if(message?.type==='visibility')syncVisibility(message.visible);else if(message?.type==='refresh')refresh();});
   if(game.settings.get(ID,'visible'))syncVisibility(true);
   if(game.user.isGM){
-    const btn=document.createElement('button');btn.id='hollowick-gm-toggle';btn.type='button';btn.textContent='🎃';btn.title='Toggle Hollowick tracker for everyone';
-    btn.addEventListener('click',()=>game.hollowickTracker.toggle());document.body.append(btn);updateToggle();
+    ensureGMLauncher();
   }
 });
