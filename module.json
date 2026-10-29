@@ -1,6 +1,6 @@
 {
   "id": "hollowick-tracker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "manifest": "https://raw.githubusercontent.com/idcs-source/hollowick-tracker/main/module.json",
   "download": "https://github.com/idcs-source/hollowick-tracker/releases/latest/download/hollowick-tracker.zip",
   "title": "Hollowick Festival Tracker",
