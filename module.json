@@ -1,8 +1,8 @@
 {
   "id": "hollowick-tracker",
   "version": "1.1.0",
-  "manifest": "https://github.com/idcs-source/hollowick-tracker/releases/latest/download/module.json",
-  "download": "https://github.com/idcs-source/hollowick-tracker/releases/latest/download/module.zip"
+  "manifest": "https://raw.githubusercontent.com/idcs-source/hollowick-tracker/main/module.json",
+  "download": "https://github.com/idcs-source/hollowick-tracker/releases/latest/download/hollowick-tracker.zip"
   "title": "Hollowick Festival Tracker",
   "description": "GM-controlled synchronized Halloween happiness and candy tracker",
   "version": "1.1.0",
